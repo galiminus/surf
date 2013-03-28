@@ -1188,12 +1188,11 @@ update(Client *c) {
 	getpagestat(c);
 
 	if(c->linkhover) {
-		t = g_strdup_printf("%s:%s | %s", togglestat, pagestat, c->linkhover);
+		t = g_strdup_printf("%s", c->linkhover);
 	} else if(c->progress != 100) {
-		t = g_strdup_printf("[%i%%] %s:%s | %s", c->progress, togglestat,
-			pagestat, c->title);
+                t = g_strdup_printf("[%i%%] %s", c->progress, c->title);
 	} else {
-		t = g_strdup_printf("%s:%s | %s", togglestat, pagestat, c->title);
+		t = g_strdup_printf("%s", c->title);
 	}
 
 	gtk_window_set_title(GTK_WINDOW(c->win), t);
